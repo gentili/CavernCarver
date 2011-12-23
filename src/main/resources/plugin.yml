@@ -1,8 +1,14 @@
 name: CavernCarver
 main: ca.mcpnet.CavernCarver.CavernCarver
 version: 0.0.1
+description: Carve caverns automatically from the player position
+author: globnobulous
 commands:
    cc_cavern:
       description: carve out a cavern from where the player is standing
       permission: <plugin name>.cc_cavern
-      usage: <command> size [player]
+      usage: /<command> size [player]
+permission:
+   <plugin name>.cc_cavern:
+      description: allows player to execute the cc_cavern command
+      default: op

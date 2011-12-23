@@ -1,0 +1,8 @@
+name: CavernCarver
+main: ca.mcpnet.CavernCarver.CavernCarver
+version: 0.0.1
+commands:
+   cc_cavern:
+      description: carve out a cavern from where the player is standing
+      permission: <plugin name>.cc_cavern
+      usage: <command> size [player]

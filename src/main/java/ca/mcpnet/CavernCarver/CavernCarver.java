@@ -66,7 +66,25 @@ public class CavernCarver extends JavaPlugin {
 			sender.sendMessage("Scheduled cavern carver job "+task.getTaskid()+", radius "+ radius);
 			return true;
 		}
+		if (cmd.getName().equals("cc_maxradius")) {
+			if (args.length != 1) {
+				return false;
+			}
+			int radius = 0;
+			try {
+				radius = Integer.decode(args[0]);
+			} catch (NumberFormatException e) {
+				sender.sendMessage("Radius must be a positive integer!");
+				return false;
+			}
+			if (radius <= 0) {
+				sender.sendMessage("Radius must be a positive integer!");				
+			}
+			getConfig().set("max_cavern_radius", radius);
+			saveConfig();
+			sender.sendMessage("Maximum radius set to "+radius);
+			return true;
+		}
 		return false;
 	}
-
 }

@@ -13,9 +13,12 @@ public class CavernCarver extends JavaPlugin {
 	static public void log(String msg) {
 		logger.info("[CavernCarver] "+msg);
 	}
-
+	
 	public void onEnable() {
 		log("CavernCarver 0.0.1 Plugin Enabled!");
+		getConfig().options().copyDefaults(true);
+		getConfig().options().copyHeader(true);
+		saveConfig();
 	}
 
 	public void onDisable() {
@@ -53,6 +56,10 @@ public class CavernCarver extends JavaPlugin {
 			} catch (NumberFormatException e) {
 				sender.sendMessage("Must specify the size of the cavern");
 				return false;
+			}
+			if (radius > getConfig().getInt("max_cavern_radius")) {
+				sender.sendMessage("Maximum allowable radius of "+getConfig().getInt("max_cavern_radius"));
+				return true;
 			}
 			CavernCarverTask task = new CavernCarverTask(this, sender, player, player.getLocation(), radius);
 			task.setTaskid(getServer().getScheduler().scheduleSyncRepeatingTask(this, task, 10L, 2L));

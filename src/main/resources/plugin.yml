@@ -1,6 +1,6 @@
 name: CavernCarver
 main: ca.mcpnet.CavernCarver.CavernCarver
-version: 0.0.1
+version: 0.2
 description: Carve caverns automatically from the player position
 author: globnobulous
 commands:
